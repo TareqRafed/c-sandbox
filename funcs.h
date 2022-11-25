@@ -11,14 +11,22 @@
 void FillArrayRandom(void *arr, int arr_size, int max_rand_val);
 
 /**
- * @brief returns two elements [int min, int max]
+ * @brief returns min integer in an array
  *
- * @param buff
  * @param arr
  * @param arr_size
- * @return int*
+ * @return int
  */
-int *FindMinMax(void *buff, void *arr, int arr_size);
+int FindMin(void *arr, int arr_size);
+
+/**
+ * @brief returns max integer in an array
+ *
+ * @param arr
+ * @param arr_size
+ * @return int
+ */
+int FindMax(void *arr, int arr_size);
 
 /**
  * @brief returns median of array
@@ -34,9 +42,9 @@ int FindMedian(void *arr, int arr_size);
  *
  * @param arr
  * @param arr_size
- * @return int
+ * @return float
  */
-int FindAvg(void *arr, int arr_size);
+float FindAvg(void *arr, int arr_size);
 
 /**
  * @brief modify array to be sorted

@@ -13,23 +13,28 @@ void FillArrayRandom(void *arr, int arr_size, int max_rand_val)
     }
 }
 
-int *FindMinMax(void *buff, void *arr, int arr_size)
+int FindMin(void *arr, int arr_size)
 {
-    int output[] = {((int *)arr)[0], ((int *)arr)[0]};
-
+    int min = ((int *)arr)[0];
     for (int i = 0; i < arr_size; i++)
     {
-        if (((int *)arr)[i] < output[0])
-            output[0] = ((int *)arr)[i];
-
-        if (((int *)arr)[i] > output[1])
-            output[1] = ((int *)arr)[i];
+        if (((int *)arr)[i] < min)
+            min = ((int *)arr)[i];
     }
 
-    ((int *)buff)[0] = output[0]; // min
-    ((int *)buff)[1] = output[1]; // max
+    return min;
+}
 
-    return ((int *)buff);
+int FindMax(void *arr, int arr_size)
+{
+    int max = ((int *)arr)[0];
+    for (int i = 0; i < arr_size; i++)
+    {
+        if (((int *)arr)[i] > max)
+            max = ((int *)arr)[i];
+    }
+
+    return max;
 }
 
 int FindMedian(void *arr, int arr_size)
@@ -39,6 +44,20 @@ int FindMedian(void *arr, int arr_size)
     MergeSort(sortedArr, arr_size);
 
     return sortedArr[arr_size / 2];
+}
+
+float FindAvg(void *arr, int arr_size)
+{
+    int l_arr[arr_size];
+    memcpy(l_arr, arr, (arr_size * sizeof(int)));
+
+    float acc = 0;
+    for (int i = 0; i < arr_size; i++)
+    {
+        acc += l_arr[i];
+    }
+
+    return (float)acc / (float)arr_size;
 }
 
 // Utility for Merge sort
